@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面談時間を守ることの意味 | 支援の質を高める「枠組み」の理解</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+            line-height: 1.8;
+            color: #2C3E50;
+            background: linear-gradient(to bottom, #F0F4F8 0%, #E8F1F5 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ヒーローセクション */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(135deg, #2C5F7C 0%, #4A90A4 100%);
+            color: white;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-icon svg {
+            width: 60px;
+            height: 60px;
+            fill: white;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        /* セクション共通 */
+        section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+
+        .section-title {
+            font-size: 2.2em;
+            color: #2C5F7C;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #4A90A4, #E8956B);
+            border-radius: 2px;
+        }
+
+        /* 導入セクション */
+        .intro-box {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-left: 6px solid #4A90A4;
+        }
+
+        .intro-box h3 {
+            color: #2C5F7C;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+
+        .intro-box p {
+            font-size: 1.15em;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .highlight-text {
+            background: linear-gradient(transparent 60%, rgba(232, 149, 107, 0.3) 60%);
+            font-weight: 600;
+            padding: 2px 4px;
+        }
+
+        /* カードグリッド */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #4A90A4, #E8956B);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4A90A4, #2C5F7C);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .card-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        .card h3 {
+            font-size: 1.4em;
+            color: #2C5F7C;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #546E7A;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        /* 枠組み理論セクション */
+        .theory-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theory-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(74, 144, 164, 0.1) 0%, transparent 70%);
+        }
+
+        .container-visual {
+            max-width: 600px;
+            margin: 40px auto;
+            position: relative;
+        }
+
+        .container-shape {
+            width: 100%;
+            height: 400px;
+            position: relative;
+        }
+
+        .outer-frame {
+            position: absolute;
+            inset: 0;
+            border: 4px solid #2C5F7C;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(74, 144, 164, 0.1) 0%, rgba(44, 95, 124, 0.1) 100%);
+        }
+
+        .frame-label {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #2C5F7C;
+            border: 2px solid #2C5F7C;
+        }
+
+        .inner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 80%;
+        }
+
+        .emotion-bubbles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .emotion-bubble {
+            background: rgba(232, 149, 107, 0.2);
+            border: 2px solid #E8956B;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 0.9em;
+            color: #2C5F7C;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .emotion-bubble:nth-child(2) { animation-delay: 0.5s; }
+        .emotion-bubble:nth-child(3) { animation-delay: 1s; }
+        .emotion-bubble:nth-child(4) { animation-delay: 1.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .theory-text {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(74, 144, 164, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid #4A90A4;
+        }
+
+        .theory-text h4 {
+            color: #2C5F7C;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        /* 反応パターン */
+        .pattern-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pattern-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .pattern-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(to right, #E8956B, #E85B6B);
+            border-radius: 16px 16px 0 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .pattern-card:hover::before {
+            opacity: 1;
+        }
+
+        .pattern-card:hover {
+            transform: scale(1.03);
+        }
+
+        .pattern-title {
+            font-size: 1.3em;
+            color: #2C5F7C;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .pattern-arrow {
+            font-size: 1.5em;
+            color: #4A90A4;
+            margin: 15px 0;
+        }
+
+        .pattern-meaning {
+            background: rgba(232, 149, 107, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #E8956B;
+        }
+
+        .pattern-meaning h5 {
+            color: #E8956B;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* スタッフ視点セクション */
+        .staff-benefits {
+            background: linear-gradient(135deg, #2C5F7C 0%, #4A90A4 100%);
+            border-radius: 20px;
+            padding: 50px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .staff-benefits::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .staff-benefits h2 {
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .benefit-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateX(10px);
+        }
+
+        .benefit-item h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .benefit-item p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+        }
+
+        /* 実践ガイド */
+        .practice-guide {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+        }
+
+        .practice-scenario {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #E8F1F5;
+        }
+
+        .practice-scenario:last-child {
+            border-bottom: none;
+        }
+
+        .scenario-title {
+            font-size: 1.5em;
+            color: #2C5F7C;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .scenario-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4A90A4, #2C5F7C);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .scenario-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .speech-bubble {
+            background: #F0F4F8;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 20px 0;
+            position: relative;
+            border: 2px solid #4A90A4;
+        }
+
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            width: 20px;
+            height: 20px;
+            background: #F0F4F8;
+            border-left: 2px solid #4A90A4;
+            border-top: 2px solid #4A90A4;
+            transform: rotate(45deg);
+        }
+
+        .speech-label {
+            font-weight: 600;
+            color: #4A90A4;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .speech-text {
+            color: #2C3E50;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+
+        /* Q&Aセクション */
+        .qa-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+        }
+
+        .qa-item {
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #E8F1F5;
+            transition: all 0.3s ease;
+        }
+
+        .qa-question {
+            background: linear-gradient(135deg, #2C5F7C 0%, #4A90A4 100%);
+            color: white;
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .qa-question:hover {
+            background: linear-gradient(135deg, #1F4A5F 0%, #357A8F 100%);
+        }
+
+        .qa-question h3 {
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .qa-toggle {
+            font-size: 1.8em;
+            transition: transform 0.3s ease;
+        }
+
+        .qa-item.active .qa-toggle {
+            transform: rotate(180deg);
+        }
+
+        .qa-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            background: #F0F4F8;
+        }
+
+        .qa-item.active .qa-answer {
+            max-height: 1000px;
+            padding: 30px;
+        }
+
+        .qa-answer h4 {
+            color: #2C5F7C;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .qa-answer p, .qa-answer ul {
+            color: #2C3E50;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .qa-answer ul {
+            padding-left: 25px;
+        }
+
+        .qa-answer li {
+            margin-bottom: 10px;
+        }
+
+        /* まとめセクション */
+        .summary-section {
+            background: linear-gradient(135deg, #E8956B 0%, #E85B6B 100%);
+            border-radius: 20px;
+            padding: 60px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                rgba(255,255,255,0.05) 20px,
+                rgba(255,255,255,0.05) 40px
+            );
+        }
+
+        .summary-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .summary-section h2 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .summary-quote {
+            font-size: 1.4em;
+            line-height: 1.8;
+            font-weight: 300;
+            margin: 30px 0;
+            font-style: italic;
+            position: relative;
+            padding: 0 40px;
+        }
+
+        .summary-quote::before,
+        .summary-quote::after {
+            content: '"';
+            font-size: 3em;
+            position: absolute;
+            opacity: 0.5;
+        }
+
+        .summary-quote::before {
+            top: -20px;
+            left: 0;
+        }
+
+        .summary-quote::after {
+            bottom: -40px;
+            right: 0;
+        }
+
+        .summary-checklist {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .checklist-item::before {
+            content: '✓';
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            background: white;
+            color: #E8956B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .checklist-item span {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* フッター */
+        .footer {
+            background: #2C5F7C;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .footer p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 0.95em;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .card-grid, .pattern-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-box, .theory-section, .practice-guide, .qa-section, .staff-benefits, .summary-section {
+                padding: 30px 20px;
+            }
+
+            .summary-quote {
+                font-size: 1.1em;
+                padding: 0 20px;
+            }
+        }
+
+        /* プリント対応 */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .hero {
+                background: #2C5F7C;
+                page-break-after: avoid;
+            }
+
+            section {
+                page-break-inside: avoid;
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+
+            .qa-answer {
+                max-height: none !important;
+                padding: 30px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヒーローセクション -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 6v6l4 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h1>面談時間を守ることの意味</h1>
+            <p class="hero-subtitle">支援の質を高めるための「枠組み」の理解</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 導入 -->
+        <section>
+            <div class="intro-box">
+                <h3>「時間を守る」は、専門的な支援技術です</h3>
+                <p>「時間通りに終わらせる」というと、冷たく感じたり、「もっと話を聞いてあげたい」と思うこともあるかもしれません。</p>
+                <p>しかし、<span class="highlight-text">面談時間を守ることは、利用者さんの成長を支えるための専門的な支援技術</span>なのです。</p>
+                <p>このガイドでは、なぜ時間の枠組みが重要なのか、その深い意味を段階的に理解していきます。</p>
+            </div>
+        </section>
+
+        <!-- 利用者にとっての4つの意味 -->
+        <section>
+            <h2 class="section-title">利用者さんにとっての4つの意味</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                        </svg>
+                    </div>
+                    <h3>安心できる構造</h3>
+                    <p>「何時から何時まで」が明確だと、利用者さんは安心して話せます。予測可能な環境が、心理的な安全基地になります。特に不安が強い方、発達特性のある方には、構造化された環境が重要です。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                        </svg>
+                    </div>
+                    <h3>自立を促す</h3>
+                    <p>限られた時間で「何を話すか」を選ぶ練習になります。優先順位をつける力が育ち、「スタッフがいないときでも自分で考える」力につながります。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
+                        </svg>
+                    </div>
+                    <h3>就労準備性</h3>
+                    <p>職場では時間の制約がある中で業務を進める必要があります。面談時間を守ることで、社会で求められる時間管理を体験的に学びます。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <h3>大切にされている実感</h3>
+                    <p>時間が守られることで、「自分のための時間が確保されている」と感じます。逆に時間が曖昧だと、「自分は特別扱いされていない」と感じることもあります。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 枠組み理論 -->
+        <section>
+            <h2 class="section-title">専門理論:「枠組み」が安全の容器になる</h2>
+            <div class="theory-section">
+                <p style="font-size: 1.1em; text-align: center; margin-bottom: 40px;">
+                    カウンセリング理論では、<strong>時間・場所・ルールなどの一貫した構造を「枠組み(setting)」</strong>と呼びます。
+                </p>
+
+                <div class="container-visual">
+                    <div class="container-shape">
+                        <div class="outer-frame">
+                            <span class="frame-label">一貫した枠組み</span>
+                            <div class="inner-content">
+                                <p style="font-weight: 600; font-size: 1.2em; color: #2C5F7C; margin-bottom: 20px;">
+                                    安心して感情を出せる「容器」
+                                </p>
+                                <div class="emotion-bubbles">
+                                    <div class="emotion-bubble">不安</div>
+                                    <div class="emotion-bubble">葛藤</div>
+                                    <div class="emotion-bubble">悩み</div>
+                                    <div class="emotion-bubble">弱さ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-text">
+                    <h4>枠組みが「容器」の役割を果たす理由</h4>
+                    <p>容器(枠組み)があるから、利用者さんは安心して自分の不安や葛藤を「出す」ことができます。枠がないと、感情が溢れ出してしまい、支援者も利用者さんも疲弊してしまいます。</p>
+                    <p style="margin-top: 15px;">時間・場所・ルールという明確な境界線が、心理的な安全を保証します。</p>
+                    <p style="margin-top: 15px; font-size: 0.95em; color: #546E7A; font-style: italic;">
+                        <strong>理論的背景:</strong> この概念は精神分析家D.W.ウィニコットの「ホールディング環境」や、ユング派分析家のテモノスの概念に基づいています。一貫した構造が、治療的な変化を可能にする「安全な場」を作ります。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 枠への反応パターン -->
+        <section>
+            <h2 class="section-title">枠への反応が、その人を理解する手がかりに</h2>
+            <p style="text-align: center; font-size: 1.1em; margin-bottom: 40px; color: #546E7A;">
+                利用者さんが「枠」に対してどのような反応を示すかは、その人が今まで生きてきた中で身につけたパターンが表れているサインです。
+            </p>
+
+            <div class="pattern-grid">
+                <div class="pattern-card">
+                    <div class="pattern-title">毎回遅刻する</div>
+                    <div class="pattern-arrow">↓</div>
+                    <div class="pattern-meaning">
+                        <h5>考えられる背景</h5>
+                        <p>約束を守ることへの困難、時間管理の課題、あるいは「関係性への不安」を無意識に表現している可能性。</p>
+                    </div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-title">面談を延長したがる</div>
+                    <div class="pattern-arrow">↓</div>
+                    <div class="pattern-meaning">
+                        <h5>考えられる背景</h5>
+                        <p>分離不安、境界の曖昧さ、自己調整の困難。「もっと見ていてほしい」という依存的なニーズの表れかもしれません。</p>
+                    </div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-title">面談を避ける</div>
+                    <div class="pattern-arrow">↓</div>
+                    <div class="pattern-meaning">
+                        <h5>考えられる背景</h5>
+                        <p>対人関係への恐れ、自己開示の困難。過去に傷ついた経験から「深く関わること」を避けている可能性。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: rgba(232, 149, 107, 0.1); padding: 30px; border-radius: 12px; margin-top: 40px; border-left: 4px solid #E8956B;">
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    <strong>重要:</strong> これらは「問題行動」ではなく、「その人が生きてきた中で身につけたパターン」です。だからこそ、私たちが一貫した枠を保つことで、<strong>新しいパターンを学ぶ機会</strong>を提供できます。
+                </p>
+            </div>
+        </section>
+
+        <!-- スタッフ自身にとっての意味 -->
+        <section>
+            <div class="staff-benefits">
+                <h2 class="section-title" style="color: white;">スタッフ自身を守る枠組み</h2>
+                <p style="text-align: center; font-size: 1.1em; margin-bottom: 40px; opacity: 0.95;">
+                    時間の枠組みは、利用者さんだけでなく、支援者であるあなた自身を守るためにも不可欠です。
+                </p>
+
+                <div class="benefit-item">
+                    <h3>バーンアウトを防ぐ</h3>
+                    <p>面談時間が曖昧だと、感情的に巻き込まれやすくなります。境界線があることで、支援者自身を守り、持続可能な支援が可能になります。</p>
+                </div>
+
+                <div class="benefit-item">
+                    <h3>複数の利用者さんへの公平な対応</h3>
+                    <p>一人の利用者さんに時間を取られると、他の方への対応が雑になります。時間を守ることが、全体の支援の質を保つことにつながります。</p>
+                </div>
+
+                <div class="benefit-item">
+                    <h3>専門性の維持</h3>
+                    <p>「友達」ではなく「支援者」としての役割を保ちます。時間の枠が、プロフェッショナルな関係性を作ります。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 面談の流れ図解 -->
+        <section>
+            <h2 class="section-title">面談の時間的な流れ</h2>
+            <div style="background: white; border-radius: 20px; padding: 50px; box-shadow: 0 6px 30px rgba(0,0,0,0.1);">
+                <p style="text-align: center; font-size: 1.1em; margin-bottom: 40px; color: #546E7A;">
+                    30分面談の場合の時間配分例:
+                </p>
+                <div style="max-width: 700px; margin: 0 auto;">
+                    <!-- タイムライン -->
+                    <div style="position: relative; padding-left: 80px;">
+                        <!-- 縦線 -->
+                        <div style="position: absolute; left: 30px; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #4A90A4, #E8956B);"></div>
+                        
+                        <!-- 開始 -->
+                        <div style="position: relative; margin-bottom: 40px;">
+                            <div style="position: absolute; left: -62px; width: 50px; height: 50px; background: linear-gradient(135deg, #4A90A4, #2C5F7C); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: 4px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">0分</div>
+                            <div style="background: rgba(74, 144, 164, 0.1); border-left: 4px solid #4A90A4; border-radius: 8px; padding: 20px;">
+                                <h4 style="color: #2C5F7C; margin-bottom: 10px;">導入・枠の提示</h4>
+                                <p style="color: #546E7A;">「今日は○時までお話を聞かせてください」</p>
+                            </div>
+                        </div>
+
+                        <!-- 本題 -->
+                        <div style="position: relative; margin-bottom: 40px;">
+                            <div style="position: absolute; left: -62px; width: 50px; height: 50px; background: linear-gradient(135deg, #4A90A4, #2C5F7C); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: 4px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">3分</div>
+                            <div style="background: rgba(74, 144, 164, 0.1); border-left: 4px solid #4A90A4; border-radius: 8px; padding: 20px;">
+                                <h4 style="color: #2C5F7C; margin-bottom: 10px;">本題・傾聴</h4>
+                                <p style="color: #546E7A;">利用者さんの話に集中。必要に応じて質問や整理をサポート</p>
+                            </div>
+                        </div>
+
+                        <!-- まとめ予告 -->
+                        <div style="position: relative; margin-bottom: 40px;">
+                            <div style="position: absolute; left: -62px; width: 50px; height: 50px; background: linear-gradient(135deg, #E8956B, #E85B6B); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: 4px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-size: 0.85em;">20分</div>
+                            <div style="background: rgba(232, 149, 107, 0.1); border-left: 4px solid #E8956B; border-radius: 8px; padding: 20px;">
+                                <h4 style="color: #E8956B; margin-bottom: 10px;">まとめの予告</h4>
+                                <p style="color: #546E7A;">「そろそろまとめに入りますね」時間への意識を促す</p>
+                            </div>
+                        </div>
+
+                        <!-- まとめ -->
+                        <div style="position: relative; margin-bottom: 40px;">
+                            <div style="position: absolute; left: -62px; width: 50px; height: 50px; background: linear-gradient(135deg, #E8956B, #E85B6B); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: 4px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-size: 0.85em;">25分</div>
+                            <div style="background: rgba(232, 149, 107, 0.1); border-left: 4px solid #E8956B; border-radius: 8px; padding: 20px;">
+                                <h4 style="color: #E8956B; margin-bottom: 10px;">まとめ・振り返り</h4>
+                                <p style="color: #546E7A;">今日のポイントを一緒に確認。次回への橋渡し</p>
+                            </div>
+                        </div>
+
+                        <!-- 終了 -->
+                        <div style="position: relative;">
+                            <div style="position: absolute; left: -62px; width: 50px; height: 50px; background: linear-gradient(135deg, #E8956B, #E85B6B); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: 4px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-size: 0.85em;">30分</div>
+                            <div style="background: rgba(232, 149, 107, 0.1); border-left: 4px solid #E8956B; border-radius: 8px; padding: 20px;">
+                                <h4 style="color: #E8956B; margin-bottom: 10px;">終了・次回の約束</h4>
+                                <p style="color: #546E7A;">「次回は○日です。また話しましょう」</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; padding: 25px; background: rgba(232, 149, 107, 0.1); border-radius: 12px; border-left: 4px solid #E8956B;">
+                    <p style="font-size: 1.05em; line-height: 1.8; color: #2C3E50;">
+                        <strong>ポイント:</strong> 残り10分(全体の約1/3)でまとめに入ることで、急に終わる感覚を避けられます。「まとめの時間」自体も支援の一部として意味があります。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 実践ガイド -->
+        <section>
+            <h2 class="section-title">実践:具体的な言葉がけ</h2>
+            <div class="practice-guide">
+                <div class="practice-scenario">
+                    <div class="scenario-title">
+                        <div class="scenario-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                            </svg>
+                        </div>
+                        <span>面談開始時</span>
+                    </div>
+                    <div class="speech-bubble">
+                        <div class="speech-label">推奨される言い方</div>
+                        <div class="speech-text">
+                            「今日は○時までですので、その中でお話を聞かせてください」
+                        </div>
+                    </div>
+                    <p style="color: #546E7A; margin-top: 15px;">
+                        → 最初に終了時刻を伝えることで、利用者さんも時間配分を意識できます
+                    </p>
+                </div>
+
+                <div class="practice-scenario">
+                    <div class="scenario-title">
+                        <div class="scenario-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                        </div>
+                        <span>面談中(残り10分)</span>
+                    </div>
+                    <div class="speech-bubble">
+                        <div class="speech-label">推奨される言い方</div>
+                        <div class="speech-text">
+                            「そろそろまとめに入りますね。今日お話しいただいたことで、特に大事だと思うポイントを一緒に確認しましょう」
+                        </div>
+                    </div>
+                    <p style="color: #546E7A; margin-top: 15px;">
+                        → 唐突に終わらせるのではなく、「まとめ」として意味づけることで納得感が生まれます
+                    </p>
+                </div>
+
+                <div class="practice-scenario">
+                    <div class="scenario-title">
+                        <div class="scenario-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                            </svg>
+                        </div>
+                        <span>終了時刻</span>
+                    </div>
+                    <div class="speech-bubble">
+                        <div class="speech-label">推奨される言い方</div>
+                        <div class="speech-text">
+                            「今日はここまでにしましょう。続きは次回また聞かせてください。次の面談は○日ですね」
+                        </div>
+                    </div>
+                    <p style="color: #546E7A; margin-top: 15px;">
+                        → 打ち切るのではなく、「次につながる」ことを伝えることで、継続的な関係性を示せます
+                    </p>
+                </div>
+
+                <div class="practice-scenario">
+                    <div class="scenario-title">
+                        <div class="scenario-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                            </svg>
+                        </div>
+                        <span>延長を求められたとき</span>
+                    </div>
+                    <div class="speech-bubble">
+                        <div class="speech-label">推奨される言い方</div>
+                        <div class="speech-text">
+                            「お話したいことがたくさんあるんですね。お気持ちはよくわかります。でも今日はここまでにして、次の面談で改めてじっくり聞かせてください」
+                        </div>
+                    </div>
+                    <p style="color: #546E7A; margin-top: 15px;">
+                        → 気持ちは受け止めつつ、枠は守る。「拒絶」ではなく「次回への約束」として伝えます
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Q&A -->
+        <section>
+            <h2 class="section-title">よくある疑問と答え</h2>
+            <div class="qa-section">
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <h3>話の途中で終わらせるのは冷たくないですか?</h3>
+                        <span class="qa-toggle">▼</span>
+                    </div>
+                    <div class="qa-answer">
+                        <h4>むしろ逆です</h4>
+                        <ul>
+                            <li>毎回時間を延長すると、利用者さんは「毎回延長しないと話を聞いてもらえない」と学習してしまいます</li>
+                            <li>時間内でも十分に聞いてもらえる、という体験が大切です</li>
+                            <li>「次回また聞きます」と伝えることで、継続的な関係性を示せます</li>
+                        </ul>
+                        <p style="margin-top: 15px;">
+                            重要なのは、<strong>枠を守りながらも温かく接する</strong>ことです。冷たく突き放すのではなく、「あなたのことは大切に思っている。だからこそ、次回もまた時間を取りますね」というメッセージを伝えることができます。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <h3>緊急性が高い相談のときはどうすればいいですか?</h3>
+                        <span class="qa-toggle">▼</span>
+                    </div>
+                    <div class="qa-answer">
+                        <h4>緊急性を見極めることが重要です</h4>
+                        <ul>
+                            <li><strong>真の緊急事態</strong>(自傷他害のリスクなど)は、別途対応が必要です。上司や専門機関と連携してください</li>
+                            <li>しかし、多くの場合「緊急に感じる」ことと「実際の緊急性」は異なります</li>
+                            <li>「今すぐ解決しなければ」という焦りそのものが、支援の対象になることもあります</li>
+                        </ul>
+                        <p style="margin-top: 15px;">
+                            見極めのポイント: 生命・身体の安全に関わるか? 法的な緊急性があるか? それとも「不安が高まっている」状態か?
+                        </p>
+                        <p style="margin-top: 10px;">
+                            不安が高まっている場合は、「今日は時間内でできるだけ聞きます。次回も時間を取りますので、一緒に考えましょう」と伝え、<strong>不安を受け止めつつ枠は守る</strong>姿勢を示します。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <h3>利用者さんが怒ったり、傷ついたりしませんか?</h3>
+                        <span class="qa-toggle">▼</span>
+                    </div>
+                    <div class="qa-answer">
+                        <h4>最初は戸惑うこともありますが、それも成長のプロセスです</h4>
+                        <ul>
+                            <li>一貫して枠を守ることで、「この人は約束を守る人だ」という信頼につながります</li>
+                            <li>「思い通りにならない」体験も、社会で生きていくための学びです</li>
+                            <li>感情的な反応があったときこそ、冷静に「枠の意味」を伝えるチャンスです</li>
+                        </ul>
+                        <p style="margin-top: 15px;">
+                            もし利用者さんが怒ったり傷ついたりした場合は:
+                        </p>
+                        <ol style="padding-left: 25px; margin-top: 10px;">
+                            <li>感情を否定せず受け止める: 「残念な気持ちになったんですね」</li>
+                            <li>枠の意味を説明する: 「でも、時間を守ることはあなたのためでもあるんです」</li>
+                            <li>次回の約束を明確にする: 「次の面談は○日です。そこでまた話しましょう」</li>
+                        </ol>
+                        <p style="margin-top: 15px;">
+                            困ったときは、チーム全体で相談しましょう。必要に応じて雄一郎の面談でサポートします。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- まとめ -->
+        <section>
+            <div class="summary-section">
+                <div class="summary-content">
+                    <h2>まとめ: プロとしての優しさ</h2>
+                    <p class="summary-quote">
+                        「優しさ」とは、目の前の要求に応えることだけではありません。その人の将来を見据えて、必要な構造を提供することも、プロとしての優しさです。
+                    </p>
+
+                    <div class="summary-checklist">
+                        <div class="checklist-item">
+                            <span>面談時間を守ることは、利用者さんの自立と成長を促す専門的な技術</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span>安全で予測可能な環境を提供する方法</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span>スタッフ自身を守り、質の高い支援を続けるための工夫</span>
+                        </div>
+                        <div class="checklist-item">
+                            <span>就労に向けた現実的な準備の一部</span>
+                        </div>
+                    </div>
+
+                    <p style="font-size: 1.2em; margin-top: 40px; line-height: 1.8;">
+                        もちろん、最初から完璧にできる必要はありません。私たちも試行錯誤しながら学んでいきます。
+                    </p>
+
+                    <p style="font-size: 1.1em; margin-top: 20px; line-height: 1.8;">
+                        困ったときは、チームで相談しましょう。<br>
+                        利用者さんの反応を記録し、ケース会議で共有しましょう。<br>
+                        「枠を守ること」と「冷たくすること」は違います。<br>
+                        温かさを持ちながら、構造を保つことを目指しましょう。
+                    </p>
+
+                    <p style="font-size: 1.3em; margin-top: 40px; font-weight: 600;">
+                        みなさんの日々の支援が、利用者さんの大きな力になっています。<br>
+                        これからも一緒に、質の高い支援を作っていきましょう。
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- フッター -->
+    <div class="footer">
+        <div class="footer-content">
+            <h3>さらに学ぶために</h3>
+            <p>このガイドは、カウンセリング理論の「枠組み(setting)」概念を就労移行支援に応用したものです。</p>
+            
+            <div style="margin: 40px 0; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto;">
+                <h4 style="font-size: 1.3em; margin-bottom: 20px; color: white;">推奨学習リソース</h4>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 12px; margin-bottom: 20px;">
+                    <h5 style="color: white; font-size: 1.1em; margin-bottom: 10px;">📚 基礎理論</h5>
+                    <ul style="list-style: none; padding: 0; line-height: 2;">
+                        <li>• D.W.ウィニコット「ホールディングとハンドリング」</li>
+                        <li>• カール・ユング派の「テモノス(神聖な場)」概念</li>
+                        <li>• 精神分析における「治療構造」の理論</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 12px; margin-bottom: 20px;">
+                    <h5 style="color: white; font-size: 1.1em; margin-bottom: 10px;">🔍 検索キーワード</h5>
+                    <ul style="list-style: none; padding: 0; line-height: 2;">
+                        <li>• 「枠組み setting カウンセリング」</li>
+                        <li>• 「境界線 boundary 援助関係」</li>
+                        <li>• 「構造化された支援 発達障害」</li>
+                        <li>• 「治療構造 psychotherapy」</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 12px;">
+                    <h5 style="color: white; font-size: 1.1em; margin-bottom: 10px;">💡 実践的な学び</h5>
+                    <ul style="list-style: none; padding: 0; line-height: 2;">
+                        <li>• チームでケース検討会を開催し、枠への反応パターンを共有</li>
+                        <li>• 自分自身の面談を振り返り、時間配分を記録してみる</li>
+                        <li>• スーパービジョンで境界線について相談する</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p style="margin-top: 30px; font-size: 1.05em;">
+                このガイドの内容について疑問や困りごとがあれば、<br>
+                いつでもチームミーティングやスーパービジョンで相談してください。
+            </p>
+
+            <div class="footer-links">
+                <span style="opacity: 0.7;">© KBC | 作成: 岡村雄一郎</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Q&Aアコーディオン
+        document.querySelectorAll('.qa-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                const wasActive = item.classList.contains('active');
+                
+                // 全てのQ&Aを閉じる
+                document.querySelectorAll('.qa-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                // クリックされた項目が閉じていた場合は開く
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // カードホバー効果の強化
+        document.querySelectorAll('.card, .pattern-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+        });
+
+        // スムーズスクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
