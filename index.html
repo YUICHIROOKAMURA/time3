@@ -775,13 +775,149 @@
                 grid-template-columns: 1fr;
             }
 
-            .intro-box, .theory-section, .practice-guide, .qa-section, .staff-benefits, .summary-section {
+            .intro-box, .theory-section, .practice-guide, .qa-section, .staff-benefits, .summary-section, .time-power-intro {
                 padding: 30px 20px;
             }
 
             .summary-quote {
                 font-size: 1.1em;
                 padding: 0 20px;
+            }
+        }
+
+        /* 「時間の力」セクション */
+        .time-power-intro {
+            background: white;
+            border-radius: 20px;
+            padding: 45px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+            margin-bottom: 35px;
+        }
+
+        .proscons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 10px;
+        }
+
+        .procon-card {
+            border-radius: 16px;
+            padding: 30px;
+        }
+
+        .procon-card.con {
+            background: rgba(232, 91, 107, 0.07);
+            border: 2px solid rgba(232, 91, 107, 0.25);
+        }
+
+        .procon-card.pro {
+            background: rgba(74, 144, 164, 0.07);
+            border: 2px solid rgba(74, 144, 164, 0.3);
+        }
+
+        .procon-label {
+            display: inline-block;
+            font-size: 0.85em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+        }
+
+        .procon-card.con .procon-label {
+            background: #E85B6B;
+            color: white;
+        }
+
+        .procon-card.pro .procon-label {
+            background: #4A90A4;
+            color: white;
+        }
+
+        .procon-card h4 {
+            color: #2C5F7C;
+            font-size: 1.15em;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .procon-card ul {
+            padding-left: 20px;
+            color: #546E7A;
+        }
+
+        .procon-card li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        .confidence-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78em;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .confidence-mid {
+            background: rgba(232, 149, 107, 0.15);
+            color: #B5652E;
+            border: 1.5px solid #E8956B;
+        }
+
+        .confidence-low {
+            background: rgba(84, 110, 122, 0.12);
+            color: #546E7A;
+            border: 1.5px solid #90A4AE;
+        }
+
+        .assessment-box {
+            background: rgba(44, 95, 124, 0.05);
+            border-radius: 16px;
+            padding: 35px;
+            margin-top: 30px;
+            border-left: 4px solid #2C5F7C;
+        }
+
+        .assessment-box h4 {
+            color: #2C5F7C;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .exception-box {
+            background: rgba(232, 91, 107, 0.08);
+            border: 2px solid rgba(232, 91, 107, 0.3);
+            border-radius: 16px;
+            padding: 30px 35px;
+            margin-top: 35px;
+        }
+
+        .exception-box h4 {
+            color: #C4364A;
+            font-size: 1.15em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .exception-box h4 svg {
+            width: 22px;
+            height: 22px;
+            fill: #C4364A;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .proscons-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -917,6 +1053,61 @@
                         <strong>理論的背景:</strong> この概念は精神分析家D.W.ウィニコットの「ホールディング環境」や、ユング派分析家のテモノスの概念に基づいています。一貫した構造が、治療的な変化を可能にする「安全な場」を作ります。
                     </p>
                 </div>
+            </div>
+        </section>
+
+        <!-- なぜすぐに・長時間対応しないのか -->
+        <section>
+            <h2 class="section-title">なぜ「今すぐ」「長時間」対応しないのか</h2>
+            <div class="time-power-intro">
+                <p style="font-size: 1.1em; text-align: center; margin-bottom: 10px;">
+                    「予約を取るまでに何度かやり取りが必要」「今日は時間だから終わりにする」——これらは一見、不便で不親切に思えるかもしれません。しかし支援の営みでは、<strong>「待つ時間」そのものに機能がある</strong>と考えられています。
+                </p>
+            </div>
+
+            <div class="proscons-grid">
+                <div class="procon-card con">
+                    <span class="procon-label">短所になりうる面</span>
+                    <h4>すぐに会えないことの不便さ・不親切さ</h4>
+                    <ul>
+                        <li>予約日を決めるまでに事務的なやり取りが何往復も発生する</li>
+                        <li>相手を待たせること自体が、不便・不親切だと感じられやすい</li>
+                        <li>本当に危機的な状況(希死念慮など)では、この「時間差」が命に関わる短所になりうる。いのちの電話のように<strong>即時につながれる窓口</strong>が別途必要</li>
+                    </ul>
+                </div>
+
+                <div class="procon-card pro">
+                    <span class="procon-label">利点になりうる面</span>
+                    <h4>「待つ時間」が果たす役割</h4>
+                    <ul>
+                        <li>強い混乱や興奮のただ中で即座に会うと、かえって気持ちが落ち着かず、自分の問題を冷静に話しづらいことがある</li>
+                        <li>予約までの数日は、欲求不満が募る時間にもなり得る一方、「先に約束がある」ことで我に返り、自分や周囲を見つめ直す時間にもなり得る</li>
+                        <li>面談自体を長く延長し続けないことも同様で、「続きはまた今度」という区切りが、次までの時間を自分で使う機会を残す</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="assessment-box">
+                <h4>支援は「時間の力」を借りる営み</h4>
+                <p>面談や相談は、その場で問題を即座に解決する道具というより、<strong>時間の経過とともに心や状況が少しずつ変化していくのを後押しする</strong>営みだと考えられます。予約までの日数、面談と面談の間隔は、単なる「空白」ではなく、この変化を起こすための仕掛けの一つです。</p>
+            </div>
+
+            <div class="assessment-box" style="border-left-color: #E8956B; background: rgba(232, 149, 107, 0.06); margin-top: 20px;">
+                <h4>待つ時間の「体験のされ方」もアセスメントの手がかりになる
+                    <span class="confidence-badge confidence-low">確度:低・臨床的示唆</span>
+                </h4>
+                <p>利用者さんが「待つこと」をどう体験するかを観察することも、支援者にとって重要な情報になります。例えば、返信が極端に早い場合は、時間の経過に耐えることの難しさを反映している可能性があります。逆に、申込みや書類に時間をかけて丁寧に取り組む様子からは、時間の力を活かせる下地があると推察できることもあります。</p>
+                <p style="margin-top: 12px; font-size: 0.95em; color: #546E7A;">
+                    ただし、これはあくまで一つの臨床的な見方であり、返信の早さだけで断定的に評価するのは避けるべきです。他の情報とあわせて総合的に見ていく視点の一つとして捉えてください。
+                </p>
+            </div>
+
+            <div class="exception-box">
+                <h4>
+                    <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 10v4h2v-4h-2zm0 6v2h2v-2h-2z"/></svg>
+                    重要な例外:真の危機は「即時対応」が必要
+                </h4>
+                <p>ここまで述べた「待つことの意味」は、あくまで<strong>通常の面談・相談のペース</strong>についての話です。自傷・希死念慮など生命に関わるリスクが疑われる場面では、話は別です。いのちの電話のような相談窓口と同様に、<strong>すぐにつながれること自体が最優先</strong>になります。「枠を守る」という原則と「命を守る」という原則が衝突するときは、迷わず後者を優先してください。</p>
             </div>
         </section>
 
@@ -1270,6 +1461,7 @@
                     <h5 style="color: white; font-size: 1.1em; margin-bottom: 10px;">📚 基礎理論</h5>
                     <ul style="list-style: none; padding: 0; line-height: 2;">
                         <li>• D.W.ウィニコット「ホールディングとハンドリング」</li>
+                        <li>• W.R.ビオン「コンテイナー・コンテインド理論」(耐えがたい感情を抱える他者との関わりを通じて、少しずつ処理できる形に変わっていく過程)</li>
                         <li>• カール・ユング派の「テモノス(神聖な場)」概念</li>
                         <li>• 精神分析における「治療構造」の理論</li>
                     </ul>
@@ -1282,6 +1474,7 @@
                         <li>• 「境界線 boundary 援助関係」</li>
                         <li>• 「構造化された支援 発達障害」</li>
                         <li>• 「治療構造 psychotherapy」</li>
+                        <li>• 「コンテイナー コンテインド ビオン」</li>
                     </ul>
                 </div>
 
